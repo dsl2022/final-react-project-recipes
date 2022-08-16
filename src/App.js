@@ -1,6 +1,6 @@
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
-import RecipeContainer from "./Components/RecipeContainer";
+import RecipeContainer from "./Components/RecipesContainer";
 import {
   addRecipe,
   deleteRecipe,
