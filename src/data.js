@@ -1,4 +1,4 @@
-export default data = [
+const data = [
   {
     title: "Classic Kimbap (Korean Seaweed Rice Roll)",
     description:
@@ -42,3 +42,5 @@ export default data = [
       "https://www.simplyrecipes.com/thmb/pFIQA_-jljDGyK2RTaLd5hfknY0=/648x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Simply-Recipes-Tortellini-LEAD-1-8a494353aca4448eac6fce60a94edeaa.jpg",
   },
 ];
+
+export default data;

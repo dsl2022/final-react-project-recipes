@@ -5,7 +5,7 @@ import {
   deleteRecipe,
   updateRecipe,
   deleteAllRecipes,
-} from "./counterSlice";
+} from "./features/recipeSlice";
 
 function App() {
   const recipes = useSelector((state) => state.recipes);
