@@ -10,7 +10,17 @@ import {
 function App() {
   const recipes = useSelector((state) => state.recipes);
   const dispatch = useDispatch();
-  return <div className="App"></div>;
+  const handleClick = () => {
+    dispatch(addRecipe());
+    dispatch(deleteRecipe());
+    dispatch(updateRecipe());
+    dispatch(deleteAllRecipes());
+  };
+  return (
+    <div className="App">
+      <button onClick={handleClick}>test</button>
+    </div>
+  );
 }
 
 export default App;
