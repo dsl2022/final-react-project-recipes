@@ -1,5 +1,6 @@
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
+import RecipeContainer from "./Components/RecipeContainer";
 import {
   addRecipe,
   deleteRecipe,
@@ -19,6 +20,7 @@ function App() {
   };
   return (
     <div className="App">
+      <RecipeContainer />
       <button onClick={handleClick}>test</button>
     </div>
   );
