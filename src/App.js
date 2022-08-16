@@ -9,6 +9,7 @@ import {
 
 function App() {
   const recipes = useSelector((state) => state.recipes);
+  console.log({ recipes });
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(addRecipe());
