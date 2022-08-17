@@ -15,7 +15,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
-
+import AddBoxIcon from "@mui/icons-material/AddBox";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -56,7 +56,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function RecipeSearchBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -191,11 +191,9 @@ export default function PrimarySearchAppBar() {
               aria-label="show 4 new mails"
               color="inherit"
             >
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
+              <AddBoxIcon />
             </IconButton>
-            <IconButton
+            {/* <IconButton
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
@@ -214,7 +212,7 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <AccountCircle />
-            </IconButton>
+            </IconButton> */}
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton

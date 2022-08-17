@@ -1,6 +1,7 @@
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import RecipeContainer from "./Components/RecipesContainer";
+import RecipeSearchBar from "./Components/Search";
 import {
   addRecipe,
   deleteRecipe,
@@ -20,6 +21,7 @@ function App() {
   };
   return (
     <div className="App">
+      <RecipeSearchBar />
       <RecipeContainer />
       <button onClick={handleClick}>test</button>
     </div>
