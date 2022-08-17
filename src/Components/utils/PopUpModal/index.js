@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import TextareaAutosize from "../TextArea";
 import TextField from "@mui/material/TextField";
+import { useDispatch } from "react-redux";
 const style = {
   position: "absolute",
   top: "50%",
@@ -25,7 +26,8 @@ export default function AddNewRecipePopUp() {
   const [title, setTitle] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
   const [description, setDescription] = useState("");
-  console.log({ title, photoUrl });
+  const dispatch = useDispatch();
+  const handleSubmit = () => {};
   return (
     <div>
       <Button onClick={handleOpen}>Open modal</Button>
@@ -57,9 +59,12 @@ export default function AddNewRecipePopUp() {
             label="Standard"
             variant="standard"
           />
-          <TextareaAutosize />
+          <TextareaAutosize
+            description={description}
+            setDescription={setDescription}
+          />
           <Button>Cancel</Button>
-          <Button>Submit</Button>
+          <Button onClick={handleSubmit}>Submit</Button>
         </Box>
       </Modal>
     </div>
