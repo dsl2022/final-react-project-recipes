@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 export default function RecipeContainer() {
   const recipes = useSelector((state) => state.recipes);
   const RecipeCards = recipes.map((recipe, index) => {
-    return <RecipeReviewCard key={index} />;
+    return <RecipeReviewCard recipe={recipe} key={index} />;
   });
   return (
     <React.Fragment>

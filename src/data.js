@@ -1,6 +1,7 @@
 const data = [
   {
     title: "Classic Kimbap (Korean Seaweed Rice Roll)",
+    createdAt: new Date().toLocaleDateString(),
     description:
       "You'll want to make a double batch of this tortellini salad—it tastes even better the next day and it's the perfect packed lunch for school or work.",
     photoUrl:
@@ -8,6 +9,7 @@ const data = [
   },
   {
     title: "A Love Letter to Wonder Girl, on the Eve of First Grade",
+    createdAt: new Date().toLocaleDateString(),
     description:
       "You'll want to make a double batch of this tortellini salad—it tastes even better the next day and it's the perfect packed lunch for school or work.",
     photoUrl:
@@ -15,6 +17,7 @@ const data = [
   },
   {
     title: "Chickpea Panini",
+    createdAt: new Date().toLocaleDateString(),
     description:
       "You'll want to make a double batch of this tortellini salad—it tastes even better the next day and it's the perfect packed lunch for school or work.",
     photoUrl:
@@ -22,6 +25,7 @@ const data = [
   },
   {
     title: "Loaded Veggie Sandwich",
+    createdAt: new Date().toLocaleDateString(),
     description:
       "You'll want to make a double batch of this tortellini salad—it tastes even better the next day and it's the perfect packed lunch for school or work.",
     photoUrl:
@@ -29,6 +33,7 @@ const data = [
   },
   {
     title: "Chickpea Panini",
+    createdAt: new Date().toLocaleDateString,
     description:
       "You'll want to make a double batch of this tortellini salad—it tastes even better the next day and it's the perfect packed lunch for school or work.",
     photoUrl:
@@ -36,6 +41,7 @@ const data = [
   },
   {
     title: "Tortellini Salad",
+    createdAt: new Date().toLocaleDateString,
     description:
       "You'll want to make a double batch of this tortellini salad—it tastes even better the next day and it's the perfect packed lunch for school or work.",
     photoUrl:
