@@ -2,6 +2,7 @@ import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import RecipeContainer from "./Components/RecipesContainer";
 import RecipeSearchBar from "./Components/Search";
+import AddNewRecipePopUp from "./Components/utils/PopUpModal";
 import {
   addRecipe,
   deleteRecipe,
@@ -21,6 +22,7 @@ function App() {
   };
   return (
     <div className="App">
+      <AddNewRecipePopUp />
       <RecipeSearchBar />
       <RecipeContainer />
       <button onClick={handleClick}>test</button>
