@@ -1,31 +1,24 @@
 import "./App.css";
-import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
 import RecipeContainer from "./Components/RecipesContainer";
 import RecipeSearchBar from "./Components/Search";
+import SearchContext from "./Context/SearchContext";
+import OpenPopUpContext from "./Context/OpenPopUpContext";
 import AddNewRecipePopUp from "./Components/utils/PopUpModal";
-import {
-  addRecipe,
-  deleteRecipe,
-  updateRecipe,
-  deleteAllRecipes,
-} from "./features/recipeSlice";
 
 function App() {
-  const recipes = useSelector((state) => state.recipes);
-  console.log({ recipes });
-  const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch(addRecipe());
-    dispatch(deleteRecipe());
-    dispatch(updateRecipe());
-    dispatch(deleteAllRecipes());
-  };
+  const [search, setSearch] = useState("");
+  const [openAdd, setOpenAdd] = useState(false);
+
   return (
     <div className="App">
-      <AddNewRecipePopUp />
-      <RecipeSearchBar />
-      <RecipeContainer />
-      <button onClick={handleClick}>test</button>
+      <OpenPopUpContext.Provider value={{ openAdd, setOpenAdd }}>
+        <AddNewRecipePopUp />
+        <SearchContext.Provider value={{ search, setSearch }}>
+          <RecipeSearchBar />
+          <RecipeContainer />
+        </SearchContext.Provider>
+      </OpenPopUpContext.Provider>
     </div>
   );
 }

@@ -6,19 +6,22 @@ export const recipeSlice = createSlice({
   name: "reciple",
   initialState,
   reducers: {
-    addRecipe: (state) => {
-      console.log("add reciple");
+    addRecipe: (state, action) => {
+      state.push(action.payload);
       return state;
     },
     deleteRecipe: (state) => {
+      //TODO add delete items
       console.log("delete reciple");
       return state;
     },
     updateRecipe: (state, action) => {
+      //TODO add update items
       console.log("update reciple");
       return state;
     },
     deleteAllRecipes: (state, action) => {
+      //TODO add delete all items
       console.log("delete all reciple");
       return state;
     },

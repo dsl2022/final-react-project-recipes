@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useContext } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -16,6 +17,8 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import AddBoxIcon from "@mui/icons-material/AddBox";
+import SearchContext from "../../Context/SearchContext";
+import OpenPopUpContext from "../../Context/OpenPopUpContext";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -57,6 +60,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function RecipeSearchBar() {
+  const { setSearch } = useContext(SearchContext);
+  const { setOpenAdd, openAdd } = useContext(OpenPopUpContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -79,7 +84,12 @@ export default function RecipeSearchBar() {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-
+  const handleOpenAdd = () => {
+    setOpenAdd(!openAdd);
+  };
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
@@ -173,19 +183,23 @@ export default function RecipeSearchBar() {
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            MUI
+            Recipes Book
           </Typography>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
+              onChange={handleSearch}
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <Box
+            onClick={handleOpenAdd}
+            sx={{ display: { xs: "none", md: "flex" } }}
+          >
             <IconButton
               size="large"
               aria-label="show 4 new mails"
@@ -193,26 +207,6 @@ export default function RecipeSearchBar() {
             >
               <AddBoxIcon />
             </IconButton>
-            {/* <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton> */}
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton

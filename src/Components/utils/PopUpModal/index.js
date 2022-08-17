@@ -1,5 +1,4 @@
-import * as React from "react";
-import { useState } from "react";
+import React, { useState, useContext } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -7,6 +6,9 @@ import Modal from "@mui/material/Modal";
 import TextareaAutosize from "../TextArea";
 import TextField from "@mui/material/TextField";
 import { useDispatch } from "react-redux";
+import { addRecipe } from "../../../features/recipeSlice";
+import OpenPopUpContext from "../../../Context/OpenPopUpContext";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -20,19 +22,28 @@ const style = {
 };
 
 export default function AddNewRecipePopUp() {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const { openAdd, setOpenAdd } = useContext(OpenPopUpContext);
+  const handleClose = () => setOpenAdd(false);
   const [title, setTitle] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
   const [description, setDescription] = useState("");
   const dispatch = useDispatch();
-  const handleSubmit = () => {};
+
+  const handleSubmit = () => {
+    dispatch(
+      addRecipe({
+        createdAt: new Date().toLocaleDateString(),
+        title,
+        photoUrl,
+        description,
+      })
+    );
+    handleClose();
+  };
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
       <Modal
-        open={open}
+        open={openAdd}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
@@ -63,7 +74,7 @@ export default function AddNewRecipePopUp() {
             description={description}
             setDescription={setDescription}
           />
-          <Button>Cancel</Button>
+          <Button onClick={handleClose}>Cancel</Button>
           <Button onClick={handleSubmit}>Submit</Button>
         </Box>
       </Modal>
