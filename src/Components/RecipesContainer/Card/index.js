@@ -29,7 +29,6 @@ const ExpandMore = styled((props) => {
 export default function RecipeReviewCard({
   recipe: { title, createdAt, description, photoUrl },
 }) {
-  console.log({ title, createdAt, description, photoUrl });
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -50,7 +49,7 @@ export default function RecipeReviewCard({
           </IconButton>
         }
         title={title}
-        subheader="September 14, 2016"
+        subheader={createdAt}
       />
       <CardMedia
         component="img"
