@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import TextareaAutosize from "../TextArea";
+import TextField from "@mui/material/TextField";
 const style = {
   position: "absolute",
   top: "50%",
@@ -32,11 +33,13 @@ export default function AddNewRecipePopUp() {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
+            Title
           </Typography>
+          <TextField id="standard-basic" label="Standard" variant="standard" />
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            Photo URL:
           </Typography>
+          <TextField id="standard-basic" label="Standard" variant="standard" />
           <TextareaAutosize />
           <Button>Cancel</Button>
           <Button>Submit</Button>
