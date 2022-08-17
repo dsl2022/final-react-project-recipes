@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
@@ -18,10 +19,13 @@ const style = {
 };
 
 export default function AddNewRecipePopUp() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
+  const [title, setTitle] = useState("");
+  const [photoUrl, setPhotoUrl] = useState("");
+  const [description, setDescription] = useState("");
+  console.log({ title, photoUrl });
   return (
     <div>
       <Button onClick={handleOpen}>Open modal</Button>
@@ -32,14 +36,27 @@ export default function AddNewRecipePopUp() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h4" component="h2">
+            Add New Recipe
+          </Typography>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Title
           </Typography>
-          <TextField id="standard-basic" label="Standard" variant="standard" />
+          <TextField
+            onChange={(e) => setTitle(e.target.value)}
+            id="standard-basic"
+            label="Standard"
+            variant="standard"
+          />
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
             Photo URL:
           </Typography>
-          <TextField id="standard-basic" label="Standard" variant="standard" />
+          <TextField
+            onChange={(e) => setPhotoUrl(e.target.value)}
+            id="standard-basic"
+            label="Standard"
+            variant="standard"
+          />
           <TextareaAutosize />
           <Button>Cancel</Button>
           <Button>Submit</Button>
